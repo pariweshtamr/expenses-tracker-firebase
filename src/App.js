@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Dashboard from "./pages/Dashboard"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "./firebase/firebase-config"
+import { useState } from "react"
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({})
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user)
+    }
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route
+              index
+              element={currentUser.uid ? <Dashboard /> : <Login />}
+            />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

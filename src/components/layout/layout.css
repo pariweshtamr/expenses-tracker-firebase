@@ -1,0 +1,13 @@
+.layout {
+  background: #212529;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout .main-content {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
