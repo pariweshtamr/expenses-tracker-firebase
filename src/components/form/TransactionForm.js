@@ -24,6 +24,7 @@ const TransactionForm = ({ fetchTransactions }) => {
     e.preventDefault()
     const docRef = await addDoc(collection(db, "transactions"), {
       ...formData,
+      createdAt: Date.now(),
       userId: user.uid,
     })
     setFormData(initialState)

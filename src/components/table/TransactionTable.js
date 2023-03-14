@@ -16,6 +16,7 @@ const TransactionTable = ({ transactions, fetchTransactions }) => {
       type === "income" ? acc + +amount : acc - +amount,
     0
   )
+
   return (
     <>
       <Table striped hover bordered className="text-light">
@@ -38,7 +39,9 @@ const TransactionTable = ({ transactions, fetchTransactions }) => {
                   style={{ cursor: "pointer" }}
                 ></i>
               </td>
-              <td></td>
+              <td className="text-light">
+                {new Date(transaction.createdAt).toLocaleDateString()}
+              </td>
               <td className="text-light">{transaction.name}</td>
               {transaction.type === "income" ? (
                 <>

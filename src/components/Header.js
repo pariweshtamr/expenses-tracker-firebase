@@ -7,7 +7,7 @@ import { auth } from "../firebase/firebase-config"
 
 const Header = () => {
   const navigate = useNavigate()
-  const user = auth.currentUser
+  const user = auth?.currentUser
 
   const handleLogout = () => {
     signOut(auth)

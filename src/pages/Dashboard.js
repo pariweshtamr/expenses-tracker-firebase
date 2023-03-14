@@ -8,7 +8,6 @@ import { auth, db } from "../firebase/firebase-config"
 const Dashboard = () => {
   const user = auth.currentUser
   const [transactions, setTransactions] = useState([])
-
   const fetchTransactions = useCallback(async () => {
     let trans = []
 
