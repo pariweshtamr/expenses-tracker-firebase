@@ -42,7 +42,7 @@ const Dashboard = () => {
         {transactions.length} transaction(s) Found!
       </div>
 
-      {transactions.length && (
+      {!!transactions.length && (
         <TransactionTable
           transactions={transactions}
           fetchTransactions={fetchTransactions}
