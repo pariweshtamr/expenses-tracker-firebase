@@ -21,6 +21,7 @@ const Dashboard = () => {
         const { id } = doc
         const data = { ...doc.data(), id }
         trans.push(data)
+        if (!trans.length) return setTransactions([])
         setTransactions(trans)
       })
     } catch (error) {

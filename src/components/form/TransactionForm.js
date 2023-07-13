@@ -36,7 +36,7 @@ const TransactionForm = ({ fetchTransactions }) => {
   return (
     <div>
       <Form onSubmit={handleSubmit}>
-        <Row className="mt-3 gap-2">
+        <Row>
           <Col md={2}>
             <Form.Select
               name="type"
@@ -49,7 +49,7 @@ const TransactionForm = ({ fetchTransactions }) => {
               <option value="expense">Expense</option>
             </Form.Select>
           </Col>
-          <Col md="5">
+          <Col md={6}>
             <Form.Control
               onChange={handleChange}
               name="name"
@@ -58,7 +58,7 @@ const TransactionForm = ({ fetchTransactions }) => {
               value={formData.name}
             />
           </Col>
-          <Col md="2">
+          <Col md={2}>
             <Form.Control
               onChange={handleChange}
               name="amount"
@@ -68,9 +68,12 @@ const TransactionForm = ({ fetchTransactions }) => {
               value={formData.amount}
             />
           </Col>
-          <Col md="2">
+          <Col md={2}>
             <div className="d-grid">
-              <Button type="submit"> Add </Button>
+              <Button type="submit" variant="success">
+                {" "}
+                Add{" "}
+              </Button>
             </div>
           </Col>
         </Row>

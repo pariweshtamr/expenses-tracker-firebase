@@ -20,7 +20,7 @@ const Header = () => {
       })
   }
   return (
-    <Navbar bg="primary" expand="md" varirant="dark">
+    <Navbar bg="light" expand="md" varirant="dark">
       <Container>
         <Link to="/">Expenses Tracker</Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
